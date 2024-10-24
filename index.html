@@ -99,7 +99,7 @@
         if (inputToken && inputToken !== storedToken) {
           // User supplied a new token, use it and save it in localStorage
           // token expiration will be much longer than other vars
-          expirationTime = now.getTime() + 365 * 24 * 60 * 60 * 1000; // 1 year in ms
+          expirationTime = new Date().getTime() + 365 * 24 * 60 * 60 * 1000; // 1 year in ms
           token = inputToken;
           saveDataWithExpiration("token", token);
         } else if (storedToken) {
