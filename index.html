@@ -30,6 +30,9 @@
         background-color: #f4f4f4;
         border: 1px solid #ddd;
       }
+      .mic-icon {
+        width: 14px;
+      }
     </style>
   </head>
   <body>
@@ -40,6 +43,11 @@
 
       <label for="question">Your Question:</label>
       <input id="question" type="text" placeholder="Enter your question" />
+
+      <!-- figure out fade animation -->
+      <button >
+        <img id="microphone" src="images/mute.png" class="mic-icon" alt="Microphone">
+      </button>
 
       <button onclick="handleSubmit()">Submit</button>
 
@@ -194,5 +202,6 @@
 
       window.onload = loadTokenFromLocalStorage;
     </script>
+    <script src="speech.js"></script>
   </body>
 </html>
