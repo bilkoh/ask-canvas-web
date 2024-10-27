@@ -7,8 +7,7 @@ else{
     recognition.continuous = true;
     recognition.interimResults = true;
 
-    document.getElementById('microphone').addEventListener('click',start);
-
+    document.getElementById('mic-button').addEventListener('click',start);
 }
 
 function start(event){
@@ -31,14 +30,15 @@ function start(event){
             // might add additional visuals for interim transcript
         }
     };
-    document.getElementById('microphone').removeEventListener('click',start);
-    document.getElementById('microphone').addEventListener('click',stop);
+    document.getElementById('mic-button').removeEventListener('click',start);
+    document.getElementById('mic-button').addEventListener('click',stop);
 }
 
 function stop(event){
+    microphone.src = "images/mute.png";
     recognition.stop();
     console.log('Microphone off');
     console.log(finalTranscript);
-    microphone.src = "images/mute.png";
-    document.getElementById('microphone').addEventListener('click',start);
+    document.getElementById('mic-button').removeEventListener('click',stop);
+    document.getElementById('mic-button').addEventListener('click',start);
 }
