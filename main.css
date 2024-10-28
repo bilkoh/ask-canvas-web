@@ -1,0 +1,29 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+#main #status {
+  margin-top: 20px;
+  color: #555;
+}
+#main input {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  width: 300px;
+  font-size: 16px;
+}
+#main button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+#main #response {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+}
+.mic-icon {
+  width: 14px;
+}
