@@ -138,4 +138,4 @@ const handleSubmit = async () => {
   }
 };
 
-window.onload = loadTokenFromLocalStorage;
+window.addEventListener("load", loadTokenFromLocalStorage);
