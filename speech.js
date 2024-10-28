@@ -26,6 +26,7 @@ function start(event){
                 interimTranscript += event.results[i][0].transcript;
             }
             question.value = finalTranscript;
+            question.focus();
             // Just printing the final transcript for now
             // might add additional visuals for interim transcript
         }
