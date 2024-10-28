@@ -31,44 +31,29 @@ const updateStatus = (message) => {
   document.getElementById("status").innerText = `Status: ${message}`;
 };
 
-const loadTokenFromLocalStorage = () => {
-  const storedToken = getDataWithExpiration("token");
-  if (storedToken) {
-    document.getElementById("token").value = storedToken;
-  }
-};
-
 const handleSubmit = async () => {
-  const inputToken = document.getElementById("token").value;
+  //   const inputToken = document.getElementById("token").value;
   let storedToken = getDataWithExpiration("token");
 
-  // Logic to handle the token
-  let token;
-  if (inputToken && inputToken !== storedToken) {
-    // User supplied a new token, use it and save it in localStorage
-    // token expiration will be much longer than other vars
-    expirationTime = new Date().getTime() + 365 * 24 * 60 * 60 * 1000; // 1 year in ms
-    token = inputToken;
-    saveDataWithExpiration("token", token);
-  } else if (storedToken) {
-    // Use the stored token if available and input is empty
-    token = storedToken;
-    // change value of input field to the stored token
-    document.getElementById("token").value = token;
-  } else {
+  if (!storedToken) {
     updateStatus("Please enter a token.");
     console.log("Status: Please enter a token.");
+    displayMessage("Canvas", "Please enter a token.");
     return;
   }
 
-  const question = document.getElementById("question").value;
+  //   const question = document.getElementById("question").value;
+  const userInput = document.getElementById("user-input");
+  const question = userInput.value;
   if (!question) {
-    updateStatus("Please enter a question.");
-    console.log("Status: Please enter a question.");
+    updateStatus("Please ask a question.");
+    console.log("Status: Please ask a question.");
     return;
   }
 
-  saveDataWithExpiration("token", token);
+  displayMessage("You", question);
+  userInput.value = "";
+  userInput.focus();
 
   let calendarData = getDataWithExpiration("calendarData");
   let courseData = getDataWithExpiration("courseData");
@@ -79,13 +64,15 @@ const handleSubmit = async () => {
       console.log("Status: Retrieving calendar and course data...");
 
       const calendarResponse = await fetch(
-        endpoints.calendar + `?token=${token}`
+        endpoints.calendar + `?token=${storedToken}`
       );
       const calendarJson = await calendarResponse.json();
       saveDataWithExpiration("calendarData", calendarJson);
       calendarData = calendarJson;
 
-      const courseResponse = await fetch(endpoints.courses + `?token=${token}`);
+      const courseResponse = await fetch(
+        endpoints.courses + `?token=${storedToken}`
+      );
       const courseJson = await courseResponse.json();
       saveDataWithExpiration("courseData", courseJson);
       courseData = courseJson;
@@ -130,6 +117,7 @@ const handleSubmit = async () => {
       "No valid answer received.";
 
     document.getElementById("response").innerText = answer;
+    displayMessage("Canvas", answer);
     updateStatus("Answer received.");
     console.log("Status: Answer received.");
   } catch (error) {
@@ -138,4 +126,4 @@ const handleSubmit = async () => {
   }
 };
 
-window.addEventListener("load", loadTokenFromLocalStorage);
+// window.addEventListener("load", loadTokenFromLocalStorage);
