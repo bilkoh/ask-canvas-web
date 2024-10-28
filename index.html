@@ -38,18 +38,25 @@
   <body>
     <section id="main">
       <h1>Ask Canvas</h1>
-      <label for="token">Token:</label>
-      <input id="token" type="password" placeholder="Enter your token" />
+      <form onsubmit="handleSubmit(); return false;">
+        <label for="token">Token:</label>
+        <input id="token" type="password" placeholder="Enter your token" />
 
-      <label for="question">Your Question:</label>
-      <input id="question" type="text" placeholder="Enter your question" />
+        <label for="question">Your Question:</label>
+        <input id="question" type="text" placeholder="Enter your question" />
 
-      <!-- figure out fade animation -->
-      <button id="mic-button">
-        <img id="microphone" src="images/mute.png" class="mic-icon" alt="Microphone">
-      </button>
+        <!-- figure out fade animation -->
+        <button id="mic-button">
+          <img
+            id="microphone"
+            src="images/mute.png"
+            class="mic-icon"
+            alt="Microphone"
+          />
+        </button>
 
-      <button onclick="handleSubmit()">Submit</button>
+        <button type="submit">Submit</button>
+      </form>
 
       <div id="status">Status: Waiting for your input...</div>
       <div id="response"></div>
