@@ -27,3 +27,17 @@ body {
 .mic-icon {
   width: 14px;
 }
+
+/* speech to text */
+.recording {
+  background-color: #dc3545 !important; /* Bootstrap's danger color */
+  color: white;
+}
+
+.recording .spinner-border {
+  display: inline-block;
+}
+
+.spinner-border {
+  display: none;
+}

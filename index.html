@@ -19,32 +19,10 @@
     ></script>
   </head>
   <body>
-    <section id="main">
-      <h1>Ask Canvas</h1>
-      <form onsubmit="handleSubmit(); return false;">
-        <!-- <label for="token">Token:</label> -->
-        <!-- <input id="token" type="password" placeholder="Enter your token" /> -->
-
-        <label for="question">Your Question:</label>
-        <input id="question" type="text" placeholder="Enter your question" />
-
-        <!-- figure out fade animation -->
-        <button id="mic-button" type="button">
-          <img
-            id="microphone"
-            src="images/mute.png"
-            class="mic-icon"
-            alt="Microphone"
-          />
-        </button>
-
-        <button type="submit">Submit</button>
-      </form>
-
-      <div id="status">Status: Waiting for your input...</div>
-      <div id="response"></div>
-    </section>
-
+    <div class="container d-flex justify-content-center ">
+      <h1 class="display-1">Ask Canvas</h1>
+    </div>
+    
     <!-- Chat container -->
     <div class="container mt-3">
       <div class="card" style="height: 400px">
@@ -146,7 +124,7 @@
     <!-- Status Notification-->
     <div
       id="toast-container"
-      class="toast-container position-fixed bottom-0 start-50 translate-middle-x"
+      class="toast-container position-fixed bottom-0 start-50 translate-middle-x pb-5"
     ></div>
 
     <!-- Error Alerts -->

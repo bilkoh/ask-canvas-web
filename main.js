@@ -164,7 +164,7 @@ const handleSubmit = async () => {
       result.response?.candidates?.[0]?.content?.parts?.[0]?.text ??
       "No valid answer received.";
 
-    document.getElementById("response").innerText = answer;
+    // document.getElementById("response").innerText = answer;
     displayMessage("Canvas", answer);
     updateStatus("success", "Answer received.");
     console.log("Status: Answer received.");
