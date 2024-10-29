@@ -20,10 +20,15 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </head>
   <body>
-    <div class="container d-flex justify-content-center ">
-      <h1 class="display-1">Ask Canvas</h1>
+    <div class="container d-flex align-items-center mt-5 mb-5">
+      <h1 class="display-1 text-nowrap me-5">Ask Canvas</h1>
+      <p class="lead flex-grow-1 mb-0">
+        AskCanvas connects to your Canvas LMS and uses AI to answer questions
+        about your classes, assignments, and deadlines, providing personalized
+        insights and keeping you organized effortlessly.
+      </p>
     </div>
-    
+
     <!-- Chat container -->
     <div class="container mt-3">
       <div class="card" style="height: 400px">
@@ -98,6 +103,9 @@
               <div class="mb-3">
                 <label for="token" class="form-label">Access Token</label>
                 <input type="password" class="form-control" id="token" />
+                <div id="tokenHelp" class="form-text">
+                  You can create a new token in your Canvas profile settings.
+                </div>
               </div>
               <!-- Add more settings as needed -->
             </form>
