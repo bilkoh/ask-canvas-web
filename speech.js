@@ -34,7 +34,7 @@ function start(event) {
   // turn mic off if clicked again
   if (recognitionActive) {
     recognition.stop();
-    updateStatus("info", "Stopped listening.");
+    // updateStatus("info", "Stopped listening.");
     changeMicIcon(recognitionActive);
     recognitionActive = false;
     return;
@@ -44,7 +44,7 @@ function start(event) {
   changeMicIcon(recognitionActive);
   recognitionActive = true;
   recognition.start();
-  updateStatus("info", "Listening...");
+//   updateStatus("info", "Listening...");
 
   recognition.onresult = (event) => {
     const transcript = event.results[0][0].transcript;
@@ -58,7 +58,7 @@ function start(event) {
     inputField.focus();
 
     recognition.stop();
-    updateStatus("info", "Stopped listening.");
+    // updateStatus("info", "Stopped listening.");
     changeMicIcon(recognitionActive);
     recognitionActive = false;
   };
@@ -81,7 +81,7 @@ function stop(event) {
   recognition.stop();
   console.log("Microphone off");
   console.log(finalTranscript);
-  updateStatus("info", "Stopped listening.");
+//   updateStatus("info", "Stopped listening.");
   document.getElementById("mic-button").removeEventListener("click", stop);
   document.getElementById("mic-button").addEventListener("click", start);
 }

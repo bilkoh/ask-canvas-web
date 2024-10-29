@@ -140,7 +140,7 @@ const handleSubmit = async () => {
       return;
     }
   } else {
-    updateStatus("info", "Using cached calendar and course data.");
+    // updateStatus("info", "Using cached calendar and course data.");
     console.log("Status: Using cached calendar and course data.");
   }
 
