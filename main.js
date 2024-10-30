@@ -45,6 +45,7 @@ const showErrorAlert = (message) => {
 };
 
 const updateStatus = (status, message) => {
+  const toastDelay = 2000;
   if (status === "error") return showErrorAlert(message);
 
   const toastContainer = document.getElementById("toast-container");
@@ -70,7 +71,9 @@ const updateStatus = (status, message) => {
   `;
 
   toastContainer.appendChild(toastElement);
-  const toastInstance = new bootstrap.Toast(toastElement);
+  const toastInstance = new bootstrap.Toast(toastElement, {
+    delay: toastDelay,
+  });
   toastInstance.show();
 
   // remove the toast after it’s hidden
@@ -91,12 +94,12 @@ const handleSubmit = async () => {
     document.getElementById("open-settings-button").click();
     const tokenInput = document.getElementById("token");
     tokenInput.focus();
-    tokenInput.classList.add('border-danger');
+    tokenInput.classList.add("border-danger");
 
     setTimeout(() => {
-        tokenInput.classList.remove('border-danger');
+      tokenInput.classList.remove("border-danger");
     }, 3000);
-    
+
     return;
   }
 
