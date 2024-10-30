@@ -86,6 +86,17 @@ const handleSubmit = async () => {
     updateStatus("info", "Please enter a token.");
     console.log("Status: Please enter a token.");
     displayMessage("Canvas", "Please enter a token.");
+
+    // show settings modal and highlight token field
+    document.getElementById("open-settings-button").click();
+    const tokenInput = document.getElementById("token");
+    tokenInput.focus();
+    tokenInput.classList.add('border-danger');
+
+    setTimeout(() => {
+        tokenInput.classList.remove('border-danger');
+    }, 3000);
+    
     return;
   }
 
