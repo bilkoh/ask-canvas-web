@@ -93,12 +93,12 @@ const handleSubmit = async () => {
     // show settings modal and highlight token field
     document.getElementById("open-settings-button").click();
     const tokenInput = document.getElementById("token");
-    tokenInput.focus();
     tokenInput.classList.add("border-danger");
 
     setTimeout(() => {
       tokenInput.classList.remove("border-danger");
-    }, 3000);
+      tokenInput.focus();
+    }, 1000);
 
     return;
   }
